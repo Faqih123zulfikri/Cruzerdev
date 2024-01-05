@@ -1,0 +1,37 @@
+#1usr/bin/sh
+
+default="\033[00m"
+merah="\033[31m"
+hijau="\033[32m"
+kuning="\033[33m"
+biru="\033[34m"
+birumuda="\033[35m"
+ungu="\033[36m"
+putih="\033[37m"
+
+menu() {
+    clear
+    echo -e -n $ungu;figlet "cruzerdev"
+    echo -e $hijau"——————————————————————————————————————————————————————————"
+    echo -e $merah" (1)."$putih" install wget"
+    echo -e $merah" (2)."$putih" exit"
+    mainmenu
+}
+
+mainmenu() {
+    echo -e -n $hijau" >>> = "$kuning;read pil
+    if [ $pil == "1" ];then
+    pkg install -y wget &> /dev//null
+    sleep 3
+    echo  -e $hijau"[✓]"$putih"sukses"
+    sleep 2
+    menu
+    elif [ $pil == "2" ];then
+    echo -e $merah"[!]"$putih" keluar"
+    exit
+    else
+    echo $merah"[!] input salah"$putih
+    fi
+}
+
+menu
